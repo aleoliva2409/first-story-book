@@ -1,14 +1,36 @@
 {
-  "name": "my-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ao-my-storybook",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "https://aleoliva2409-dev.com.ar",
+  "repository": {
+    "url": "https://github.com/aleoliva2409/first-story-book",
+    "type": "git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "peerDependencies": {
+    "react": ">=17",
+    "typescript": ">= 4"
+  },
   "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "yarn clean && tsc && yarn copy-files",
+    "build-storybook": "build-storybook",
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -27,7 +49,18 @@
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^8.3.0",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^4.4.1",
+    "semantic-release": "18.0.0",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
-  }
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }

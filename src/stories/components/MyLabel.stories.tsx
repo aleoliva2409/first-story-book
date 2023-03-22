@@ -41,7 +41,7 @@ Tertiary.args = {
 export const FontColor = Template.bind({});
 FontColor.args = {
   label: 'FontColor Label',
-  size: 'h1',
+  size: 'h2',
   allCaps: false,
   customColor: '#020202',
 };
